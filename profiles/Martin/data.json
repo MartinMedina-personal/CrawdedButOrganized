@@ -1,0 +1,29 @@
+{
+  "pantryItems": [
+    {
+      "name": "eggs",
+      "quantity": 3,
+      "expirationDate": "unknown",
+      "category": "scanned"
+    },
+    {
+      "name": "bread",
+      "quantity": 3,
+      "expirationDate": "unknown",
+      "category": "scanned"
+    },
+    {
+      "name": "pasta",
+      "quantity": 3,
+      "expirationDate": "unknown",
+      "category": "scanned"
+    },
+    {
+      "name": "milk",
+      "quantity": 3,
+      "expirationDate": "unknown",
+      "category": "scanned"
+    }
+  ],
+  "groceryItems": []
+}

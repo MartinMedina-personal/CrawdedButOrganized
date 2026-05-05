@@ -1,0 +1,108 @@
+/* ================================
+   BASE TABLEVIEW
+   ================================ */
+.table-view {
+    -fx-background-color: transparent;
+    -fx-control-inner-background: #020617;
+    -fx-control-inner-background-alt: #0b1220;
+    -fx-padding: 0;
+    -fx-background-insets: 0;
+    -fx-table-cell-border-color: #1f2937;
+    -fx-table-header-border-color: #1f2937;
+    -fx-border-color: #1f2937;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+/* ================================
+   HEADER BACKGROUND (JavaFX 21)
+   ================================ */
+.table-view .column-header-background {
+    -fx-background-color: linear-gradient(to bottom, #0f172a, #0a1120);
+    -fx-background-radius: 10 10 0 0;
+    -fx-padding: 8 0 8 0;
+    -fx-border-color: #1f2937;
+    -fx-border-width: 0 0 1 0;
+}
+
+/* HEADER CONTAINER */
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+
+/* ================================
+   HEADER TEXT
+   ================================ */
+.table-view .column-header > .label {
+    -fx-text-fill: #e5e7eb;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 4 0 4 0;
+}
+
+/* HEADER HOVER EFFECT */
+.table-view .column-header:hover {
+    -fx-background-color: #1e293b;
+}
+
+/* ================================
+   ROWS
+   ================================ */
+.table-row-cell {
+    -fx-background-color: #020617;
+    -fx-border-color: #1f2937;
+    -fx-cell-size: 38px;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+}
+
+/* ALTERNATING ROWS */
+.table-row-cell:odd {
+    -fx-background-color: #0b1220;
+}
+
+/* ROW HOVER */
+.table-row-cell:hover {
+    -fx-background-color: #0f172a;
+}
+
+/* SELECTED ROW */
+.table-row-cell:selected {
+    -fx-background-color: #1e293b;
+    -fx-text-fill: #22d3ee;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+}
+
+/* ================================
+   CELL TEXT
+   ================================ */
+.table-cell {
+    -fx-text-fill: #e5e7eb;
+    -fx-font-size: 13px;
+}
+
+/* ================================
+   SCROLLBAR (NEON STYLE)
+   ================================ */
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #334155;
+    -fx-background-radius: 6;
+}
+
+.scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #475569;
+}
+
+.scroll-bar:vertical .track {
+    -fx-background-color: #0f172a;
+}
+
+/* ================================
+   FOCUS RING REMOVAL
+   ================================ */
+.table-view:focused {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
