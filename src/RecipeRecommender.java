@@ -10,7 +10,27 @@ public class RecipeRecommender {
      * - Use ML to rank recipes
      */
 
-    // Selection Sort by Prep Time
+    // ================================
+ 
+    // Sort recipes by prep time (ascending)
+    // ================================
+    public static void insertionSortByPrepTime(List<Recipe> recipes) {
+        for (int i = 1; i < recipes.size(); i++) {
+            Recipe key = recipes.get(i);
+            int j = i - 1;
+
+            while (j >= 0 && recipes.get(j).getPrepTime() > key.getPrepTime()) {
+                recipes.set(j + 1, recipes.get(j));
+                j--;
+            }
+
+            recipes.set(j + 1, key);
+        }
+    }
+
+    // ================================
+    // SELECTION SORT (Your original method)
+    // ================================
     public static void sortByPrepTime(List<Recipe> recipes) {
         for (int i = 0; i < recipes.size() - 1; i++) {
             int minIndex = i;
