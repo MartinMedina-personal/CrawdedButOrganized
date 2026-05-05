@@ -451,42 +451,51 @@ public class MainApp extends Application {
 
 
 
-        // ============================================================
-        //  PANTRY SCREEN
-        // ============================================================
-        TextField name = input("Item name");
-        TextField qty = input("Quantity");
-        TextField exp = input("Expiration (e.g. 2025-01-01)");
-        TextField cat = input("Category");
+ // ============================================================
+//  PANTRY SCREEN
+// ============================================================
+TextField name = input("Item name");
+TextField qty = input("Quantity");
+TextField exp = input("Expiration (e.g. 2025-01-01)");
+TextField cat = input("Category");
 
-        Button add = primaryButton("Add to Pantry");
+Button add = primaryButton("Add to Pantry");
 
-        add.setOnAction(e -> {
-            try {
-                int q = Integer.parseInt(qty.getText().trim());
-                pantry.addItem(name.getText(), q, exp.getText(), cat.getText());
+add.setOnAction(e -> {
+    try {
+        int q = Integer.parseInt(qty.getText().trim());
+        pantry.addItem(name.getText(), q, exp.getText(), cat.getText());
 
-                name.clear();
-                qty.clear();
-                exp.clear();
-                cat.clear();
+        name.clear();
+        qty.clear();
+        exp.clear();
+        cat.clear();
 
-                refreshTable();
-                status.setText("Item added to pantry ✔");
-                saveCurrentProfile();
-            } catch (NumberFormatException ex) {
-                status.setText("Quantity must be a number");
-            }
-        });
+        refreshTable();
+        status.setText("Item added to pantry ✔");
+        saveCurrentProfile();
+    } catch (NumberFormatException ex) {
+        status.setText("Quantity must be a number");
+    }
+});
 
-        VBox form = card(
-                labelTitle("Add Pantry Item"),
-                name, qty, exp, cat, add
-        );
-        form.setPrefWidth(350);
+// ⭐ NEW SORT BUTTON
+Button sortExp = secondaryButton("Sort by Expiration");
 
-        
-        table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+sortExp.setOnAction(e -> {
+    List<PantryItem> sorted = pantry.getSortedByExpiration();
+    data.setAll(sorted);
+    status.setText("Pantry sorted by expiration ✔");
+});
+
+// ⭐ UPDATED FORM WITH SORT BUTTON
+VBox form = card(
+        labelTitle("Add Pantry Item"),
+        name, qty, exp, cat, add,
+        sortExp
+);
+form.setPrefWidth(350);
+
 
      // ============================================================
     //  HYBRID CARD LAYOUT (HEADER CARD + FLOATING TABLE)
